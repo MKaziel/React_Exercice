@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
 const CartItem = ({ item, handleQuantity, handleDeleteitem }) => {
     const [state, setstate] = useState({
@@ -42,6 +42,7 @@ const CartItem = ({ item, handleQuantity, handleDeleteitem }) => {
                             onChange={(e) => updateQuantity(e, item)}
                             value={state.quantity}
                             name="quantity"
+                            className="form-select"
                         >
                             {maxQ.map((el, i) => (
                                 <option value={i + 1} key={i}>
@@ -51,9 +52,7 @@ const CartItem = ({ item, handleQuantity, handleDeleteitem }) => {
                         </select>
                     </div>
                     <div>
-                        <button onClick={() => handleDeleteitem(item)}>
-                            Suppr
-                        </button>
+                        <Button variant="primary" onClick={() => handleDeleteitem(item)}>Remove</Button>
                     </div>
                 </div>
             </div>
